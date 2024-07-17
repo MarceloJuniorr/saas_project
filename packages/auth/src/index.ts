@@ -16,6 +16,9 @@ export function defineAbilityFor(user: User) {
 
     const builder = new AbilityBuilder(createAppAbility)
 
-    if(typeof permissions[user.role])
+    if(typeof permissions[user.role]  !== 'function') {
+        throw new Error(`Permissions for role ${user.role} not found`);
+        
+    } 
 
 }
